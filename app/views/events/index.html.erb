@@ -1,10 +1,42 @@
 <h1>Events</h1>
 
+<% if current_user %>
+  <%= link_to "New post", new_event_path %>
+<% else %>
+  <p>
+    Sign up / Log in to view names or create posts
+  </p>
+<% end %>
+
 <% @events.each do |event| %>
-  <%= event.name %>
-  <%= event.location %>
-  <p>On
-    <%= event.date %></p>
-  <p>By
-    <%= event.creator.name %></p>
+  <div class="event">
+    <div class="name">
+      <p>
+        Event name:
+        <%= event.name %>
+      </p>
+    </div>
+    <div class="location">
+      <p>
+        location:
+        <%= event.location %>
+      </p>
+    </div>
+    <div class="date">
+      <p>
+        date:
+        <%= event.date %>
+      </p>
+    </div>
+    <div class="creator">
+      <p>
+        By :
+        <% if current_user %>
+          <%= event.creator.name %>
+        <% else %>
+          Anonymous user
+        <% end %>
+      </p>
+    </div>
+  </div>
 <% end %>
