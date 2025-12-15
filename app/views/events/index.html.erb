@@ -16,18 +16,6 @@
         <%= event.name %>
       </p>
     </div>
-    <div class="location">
-      <p>
-        location:
-        <%= event.location %>
-      </p>
-    </div>
-    <div class="date">
-      <p>
-        date:
-        <%= event.date %>
-      </p>
-    </div>
     <div class="creator">
       <p>
         By :
@@ -37,6 +25,9 @@
           Anonymous user
         <% end %>
       </p>
+    </div>
+    <div class="show_link">
+      <%= link_to "Show", event_path(event) %>
     </div>
   </div>
 <% end %>

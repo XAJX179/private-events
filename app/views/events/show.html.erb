@@ -1,0 +1,30 @@
+<div class="event">
+  <div class="name">
+    <p>
+      Event name:
+      <%= @event.name %>
+    </p>
+  </div>
+  <div class="location">
+    <p>
+      location:
+      <%= @event.location %>
+    </p>
+  </div>
+  <div class="date">
+    <p>
+      date:
+      <%= @event.date %>
+    </p>
+  </div>
+  <div class="creator">
+    <p>
+      By :
+      <% if current_user %>
+        <%= @event.creator.name %>
+      <% else %>
+        Anonymous user
+      <% end %>
+    </p>
+  </div>
+</div>
