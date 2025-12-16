@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2025_12_16_084545) do
-  create_table "event_attendees", id: false, force: :cascade do |t|
+  create_table "event_attendees", force: :cascade do |t|
     t.integer "attending_event_id", null: false
     t.integer "attendee_id", null: false
     t.datetime "created_at", null: false
