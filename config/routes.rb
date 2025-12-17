@@ -12,11 +12,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  devise_for :users
-  root "events#index"
-  get "users/show"
-  resources :events, only: [ :index, :show, :new, :create ] do
-    resources :event_attendees, only: [ :index, :show, :new, :create, :destroy ]
-    resources :event_invitations, only: [ :new, :create ]
+  scope "/private-events" do
+    devise_for :users
+    root "events#index"
+    get "users/show"
+    resources :events, only: [ :index, :show, :new, :create ] do
+      resources :event_attendees, only: [ :index, :show, :new, :create, :destroy ]
+      resources :event_invitations, only: [ :new, :create ]
+    end
   end
 end
