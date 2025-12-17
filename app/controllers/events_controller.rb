@@ -21,9 +21,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = current_user.events.build(event_params)
-    if event.save!
-      event.invited_users << current_user
+    @event = current_user.events.build(event_params)
+    if @event.save
+      @event.invited_users << current_user
       redirect_to events_path
     else
       flash.now[:alert] = "Invalid"

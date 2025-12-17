@@ -1,11 +1,20 @@
 <%= form_with model: @event do |f| %>
+  <% if @event.errors.any? %>
+    <ul>
+      <% @event.errors.full_messages.each do |err| %>
+        <li>
+          <%= err %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name, autofocus: true, autocomplete: "Event Name", minlength: 3 %>
   </div>
   <div class="field">
     <%= f.label :location %><br>
-    <%= f.text_area :location, autocomplete: "Building no., Street, City", minlength: 10 %>
+    <%= f.text_area :location, autocomplete: "location", minlength: 15 %>
   </div>
   <div class="field">
     <%= f.label :date %><br>

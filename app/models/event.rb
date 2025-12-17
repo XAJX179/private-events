@@ -1,4 +1,8 @@
 class Event < ApplicationRecord
+  validates :name, presence: true, uniqueness: true, length: { minimum: 3 }
+  validates :location, presence: true, length: { minimum: 15 }
+  validates :date, presence: true
+
   belongs_to :creator, class_name: "User"
   has_many :event_attendees, dependent: :destroy,
             foreign_key: "attending_event_id"
