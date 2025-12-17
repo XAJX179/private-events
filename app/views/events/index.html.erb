@@ -13,7 +13,35 @@
   </p>
 <% end %>
 
-<% @events.each do |event| %>
+<h2>Events (upcoming):</h2>
+
+<% @events.upcoming.each do |event| %>
+  <div class="event">
+    <div class="name">
+      <p>
+        Event name:
+        <%= event.name %>
+      </p>
+    </div>
+    <div class="creator">
+      <p>
+        By :
+        <% if current_user %>
+          <%= event.creator.name %>
+        <% else %>
+          Anonymous user
+        <% end %>
+      </p>
+    </div>
+    <div class="show_link">
+      <%= link_to "Show", event_path(event) %>
+    </div>
+  </div>
+<% end %>
+
+<h2>Events (past):</h2>
+
+<% @events.past.each do |event| %>
   <div class="event">
     <div class="name">
       <p>

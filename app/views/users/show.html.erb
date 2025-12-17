@@ -1,7 +1,7 @@
 <div class="attending-events-list">
-  <p>
+  <h2>
     attending events (future):
-  </p>
+  </h2>
   <ul>
     <% current_user.attending_events.where('date >= ?', Date.today).each do |event| %>
       <div class="event">
@@ -28,9 +28,9 @@
     <% end %>
   </ul>
 
-  <p>
+  <h2>
     attending events (past):
-  </p>
+  </h2>
   <ul>
     <% current_user.attending_events.where('date < ?', Date.today).each do |event| %>
       <div class="event">
