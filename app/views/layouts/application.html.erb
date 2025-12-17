@@ -23,6 +23,10 @@
   </head>
 
   <body>
+    <%= link_to "Events", events_path %>
+    <% if current_user %>
+      <%= link_to "Attending events", users_show_path %>
+    <% end %>
     <% if flash %>
       <div>
         <%= flash[:notice] %>
