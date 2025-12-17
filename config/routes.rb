@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "users/show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -15,7 +14,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   root "events#index"
+  get "users/show"
   resources :events, only: [ :index, :show, :new, :create ] do
-  resources :event_attendees, only: [ :index, :show, :new, :create, :destroy ]
+    resources :event_attendees, only: [ :index, :show, :new, :create, :destroy ]
+    resources :event_invitations, only: [ :new, :create ]
   end
 end

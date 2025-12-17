@@ -1,0 +1,20 @@
+<%= form_with url: event_event_invitations_path do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, autofocus: true, autocomplete: "User Name", minlength: 4 %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Invite" %>
+  </div>
+<% end %>
+
+<p>list of users:</p>
+<ul>
+  <% User.all.each do |user| %>
+    <li>
+      <%= user.name %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Back", events_path %>

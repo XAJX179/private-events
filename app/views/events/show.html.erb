@@ -27,6 +27,11 @@
       <% end %>
     </p>
   </div>
+  <div class="invite">
+    <% if @event.creator.id = current_user.id %>
+      <%= link_to "Invite User", new_event_event_invitation_path(@event) %>
+    <% end %>
+  </div>
   <% if @event.attendee_ids.include?(current_user.id) %>
     <div class="attend-status">
       Attending This!
