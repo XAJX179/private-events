@@ -1,6 +1,11 @@
 <h1>Events</h1>
 
 <% if current_user %>
+  <p>
+    <%= link_to "Attending events", users_show_path %>
+  </p>
+<% end %>
+<% if current_user %>
   <%= link_to "New post", new_event_path %>
 <% else %>
   <p>
