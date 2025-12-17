@@ -41,6 +41,18 @@
       <%= button_to "Attend this!", event_event_attendees_path(@event) %>
     </div>
   <% end %>
+  <div class="attendees-list">
+    <p>
+      attendees:
+    </p>
+    <ul>
+      <% @event.attendees.each do |item| %>
+        <li>
+          <%= item.name %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <%= link_to "Back", events_path %>
