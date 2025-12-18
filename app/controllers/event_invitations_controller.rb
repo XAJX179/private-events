@@ -3,7 +3,7 @@ class EventInvitationsController < ApplicationController
   end
 
   def create
-    event = Event.find(params[:event_id])
+    event = current_user.events.find(params[:event_id])
     invite_user = User.where(name: params[:name])
     event.invited_users << invite_user
     if event.save && !invite_user.empty?
