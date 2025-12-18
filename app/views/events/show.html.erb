@@ -28,7 +28,7 @@
     </p>
   </div>
   <div class="invite">
-    <% if @event.creator.id = current_user.id %>
+    <% if @event.creator.id == current_user.id %>
       <%= link_to "Invite User", new_event_event_invitation_path(@event) %>
     <% end %>
   </div>
